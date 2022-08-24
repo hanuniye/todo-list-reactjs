@@ -1,16 +1,22 @@
 let tasks = [
   {
-    id:1,
-    task:"hello",
+    key:Math.floor(Math.random() * 50000),
+    text:"hello",
+    isCompleted:true
   },
+  
   {
-    id:2,
-    task:"hi",
+    key:Math.floor(Math.random() * 50000),
+    text:"hi",
+    isCompleted:true
   },
+  
   {
-    id:3,
-    task:"haa",
+    key:Math.floor(Math.random() * 50000),
+    text:"haa",
+    isCompleted:true
   }
+  
 ]
 
 export default tasks;
