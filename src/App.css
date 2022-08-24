@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 30px;
+  background-color: aliceblue;
 }
 
-.App-link {
-  color: #61dafb;
+.container{
+  width: 450px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-cont{
+  height:50px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 20px;
+  align-items: center;
 }
+
+.input-cont input{
+  width: 90%;
+  font-size: 20px;
+  border: none;
+  outline: none;
+}
+
+.input-cont input::placeholder{
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.submiBtn{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.submiBtn .plus-icon{
+  color: purple;
+  margin: 0 0 0 auto;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.todoList{
+  margin-top: 20px;
+  height:50px;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 38px 0 20px;
+  align-items: center;
+}
+
+.todoList input{
+  margin: 0 auto 0 0;
+  width: 60%;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.trash-icon{
+ margin-right: 40px;
+ color:rgb(90, 110, 239);
+ font-size: 20px;
+ cursor: pointer;
+}
+
+.check-icon{
+  color:rgb(90, 110, 239);
+  font-size: 20px;
+  cursor: pointer;
+ }
+
+ .checked{
+  background-color: rgb(193, 153, 235);
+ }
+
+ .middle-line{
+  text-decoration: line-through;
+ }
