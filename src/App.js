@@ -7,17 +7,13 @@ import "./App.css";
 const App = () => {
   const [task,setTask] = useState(tasks);
 
-  console.log(task);
-  let info = task.map(item =>{
-    return <TodoList text={item.text} isCompleted={item.isCompleted}  key={item.key}/>
-  })
 
   let completedTask = task.filter(item =>{
-    return item.isCompleted == true;
+    return item.isCompleted === true;
   })
 
   let leftTask = task.filter(item =>{
-    return item.isCompleted == false
+    return item.isCompleted === false
   })
 
   
@@ -28,25 +24,57 @@ const App = () => {
   }
 
   function addItem(e){
-    e.preventDefault()
+    e.preventDefault();
 
     let newText = task.text;
-
     let newItem = {
       key:Math.floor(Math.random() * 5000),
       text:newText,
       isCompleted:false
     }
 
-    let newTask = [...task, newItem]
-    setTask(newTask)
+    if(newItem.text !== ''){
+      let newTask = [...task, newItem];
+      setTask(newTask);
+    }
+
+    
+  }
+
+  function check(key){
+    let checkedTask = task.map(item =>{
+      if(item.key === key){
+        item.isCompleted = !item.isCompleted
+      }
+      return item;
+    })
+    setTask(checkedTask)
+  }
+
+  function deleteTask(key){
+    let deletedTask = task.filter(item =>{
+      return item.key != key
+    })
+    setTask(deletedTask)
+  }
+
+  function updateTask(text,key){
+    let updatedTask = task.map(item =>{
+      if(item.key === key){
+        item.text = text
+      }
+      return item;
+    })
+
+    setTask(updatedTask)
   }
 
 
   return (
     <>
       <Todoform handleChange={handleChange} addItem={addItem} task={task}/>
-      {info}
+      <TodoList task={task} check={check} deleteTask={deleteTask} updateTask={updateTask}/>
+
       <div className="status">
         <h6>{leftTask.length} task left</h6>
         <h6>{completedTask.length} completed</h6>
