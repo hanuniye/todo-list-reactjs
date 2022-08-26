@@ -1,12 +1,10 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Todoform from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import tasks from "./components/Tasks";
 import "./App.css";
 
 const App = () => {
-  const [task,setTask] = useState(tasks);
-
+  const [task,setTask] = useState([]);
 
   let completedTask = task.filter(item =>{
     return item.isCompleted === true;
@@ -69,6 +67,24 @@ const App = () => {
     setTask(updatedTask)
   }
 
+  useEffect(() =>{
+    getStorage()
+    console.log("get data");
+  },[])
+
+  useEffect(() =>{
+    taskStore()
+    console.log("save data");
+  },[task])
+
+  function taskStore(){
+    localStorage.setItem("items",JSON.stringify(task));
+  }
+
+  function getStorage(){
+      let localData = JSON.parse(localStorage.getItem("items"))
+      setTask(localData)
+  }
 
   return (
     <>
